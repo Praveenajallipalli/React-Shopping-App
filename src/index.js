@@ -10,11 +10,12 @@ import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 import DataBindingComponent from './Components/DataBindingComponent';
 import Mars from './Components/mars';
 import ShoppingComponent from './Components/ShoppingComponent';
+import EventBindingCOmponent from './Components/EventBindingComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ShoppingComponent />
+    <EventBindingCOmponent />
   </React.StrictMode>
 );
 

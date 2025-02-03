@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 
 export default function ShoppingComponent(){
     const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState([]);
 
     function LoadCategories(){
-        fetch('http://fakestoreapi.com/products/categories')
+        fetch('https://fakestoreapi.com/products/categories')
         .then(response => response.json())
         .then(data => {
             data.unshift("All");
@@ -12,13 +13,19 @@ export default function ShoppingComponent(){
         })
     }
 
-    function Load
+    function LoadProducts(){
+        fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then( data => {
+            setProducts(data);
+        })
+    }
 
     useEffect(()=>{
         LoadCategories();
+        LoadProducts();
     },[])
 
-    const [products, setProducts] = useState([]);
 
     return(
         <div className="container-fluid">
@@ -39,8 +46,28 @@ export default function ShoppingComponent(){
                         </div>
                     </div>
                 </nav>
-                <main className="col-9">
-
+                <main className="col-9 d-flex flex-wrap overflow-auto" style={{height:"400px"}} > 
+                    {
+                        products.map(product =>
+                            <div key={product.id} className="card m-2 p-2 w-25">
+                                <img src={product.image} className="card-img-top" height="150" />
+                                <div className="card-header">
+                                    <p>{product.title}</p>
+                                </div>
+                                <div className="card-body">
+                                    <dl>
+                                        <dt>Price</dt>
+                                        <dd>{product.price}</dd>
+                                        <dt>Rating</dt>
+                                        <dd>
+                                            <span className="bi bi-star-fill text-success"></span>
+                                            {product.rating.rate} <span>[{product.rating.count }]</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        )
+                    }
                 </main>
             </section>
         </div>
