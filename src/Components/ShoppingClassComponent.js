@@ -1,4 +1,5 @@
 import React from "react";
+import { CardComponent } from "./CardComponent";
 
 export default class ShoppingClassComponent extends React.Component
 {
@@ -57,23 +58,15 @@ export default class ShoppingClassComponent extends React.Component
                                 }
                         </select>
                     </nav>
-                    <main className="col-6" >
+                    <main className="col-9" >
                         <div className="d-flex flex-wrap">
                                 {
                                     this.state.products.map(product => 
-                                        <div key={product.id} className="card p-2 m-2" style={{width:"200px"}} >
-                                            <img src={product.image} className="card-img-top" height="150" />
-                                            <div className="card-header" style={{height:"160px"}}>
-                                                <p>{product.title}</p>
-                                            </div>
-                                        </div>
+                                        <CardComponent key={product.id} product={product}/>
                                     )
                                 }
                         </div>
                     </main>
-                    <aside className="col-3">
-
-                    </aside>
                 </section>
             </div>
         )
