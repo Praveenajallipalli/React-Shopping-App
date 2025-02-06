@@ -7,15 +7,17 @@ import NetflixIndexComponent from './Components/NetflixIndexComponent';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
-import DataBindingComponent from './Components/DataBindingComponent';
-import Mars from './Components/mars';
+import TwoWayClass from './Components/TwoWayClass';
 import ShoppingComponent from './Components/ShoppingComponent';
-import EventBindingCOmponent from './Components/EventBindingComponent';
+import ShoppingClassComponent from './Components/ShoppingClassComponent';
+import LoginComponent from './Components/LoginComponent';
+import FormCOmponent from './Components/FormComponent';
+import FormikDemo from './Components/FormikDemo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <EventBindingCOmponent />
+    <FormikDemo />
   </React.StrictMode>
 );
 
