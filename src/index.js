@@ -13,11 +13,12 @@ import ShoppingClassComponent from './Components/ShoppingClassComponent';
 import LoginComponent from './Components/LoginComponent';
 import FormCOmponent from './Components/FormComponent';
 import FormikDemo from './Components/FormikDemo';
+import FormikValidation from './Components/FormikValidation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FormikDemo />
+    <FormikValidation/>
   </React.StrictMode>
 );
 
