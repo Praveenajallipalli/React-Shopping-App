@@ -15,11 +15,12 @@ import FormCOmponent from './Components/FormComponent';
 import FormikDemo from './Components/FormikDemo';
 import FormikValidation from './Components/FormikValidation';
 import YupValidation from './Components/YupValidation';
+import YupValidationComponent from './Components/YupValidationComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <YupValidation />
+    <YupValidationComponent />
   </React.StrictMode>
 );
 
