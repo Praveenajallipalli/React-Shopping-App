@@ -4,6 +4,7 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 import NetflixIndexComponent from './Components/NetflixIndexComponent';
+import { CookiesProvider } from 'react-cookie';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
@@ -18,11 +19,15 @@ import YupValidation from './Components/YupValidation';
 import YupValidationComponent from './Components/YupValidationComponent';
 import LifeCycleDemo from './Components/LifeCycleDemo';
 import ReactHookDemo from './Components/ReactHookDemo';
+import ContextDemo from './Components/ContextDemo';
+import UserLogin from './Components/UserLogin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ReactHookDemo />
+    <CookiesProvider>
+      <UserLogin />
+    </CookiesProvider>
   </React.StrictMode>
 );
 

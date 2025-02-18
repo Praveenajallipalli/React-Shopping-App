@@ -12,7 +12,7 @@ class SuccessComponent extends React.Component
 
     render(){
         return(
-            <div>
+            <div> 
                 <h2>Login Success...</h2>
             </div>
         )
