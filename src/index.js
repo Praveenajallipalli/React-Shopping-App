@@ -21,13 +21,12 @@ import LifeCycleDemo from './Components/LifeCycleDemo';
 import ReactHookDemo from './Components/ReactHookDemo';
 import ContextDemo from './Components/ContextDemo';
 import UserLogin from './Components/UserLogin';
+import ReducerDemo from './Components/ReducerDemo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CookiesProvider>
-      <UserLogin />
-    </CookiesProvider>
+    <ReducerDemo />
   </React.StrictMode>
 );
 
