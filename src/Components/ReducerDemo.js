@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import { useFetchData } from "../hooks/useFetchData";
 
 // var initialState = {count:0};
 var initialState = {likes:0, dislikes:0};
@@ -16,15 +17,16 @@ function reducer(state, action){
 
 export default function ReducerDemo(){
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [product, setProduct] = useState({});
+    // const [product, setProduct] = useState({});
+    const data = useFetchData("https://fakestoreapi.com/products/9");
 
-    useEffect(()=>{
-        fetch("https://fakestoreapi.com/products/2")
-        .then(response => response.json())
-        .then(data => {
-            setProduct(data);
-        })
-    })
+    // useEffect(()=>{
+    //     fetch("https://fakestoreapi.com/products/2")
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setProduct(data);
+    //     })
+    // })
 
     return(
         <div className="container-fluid">
@@ -34,9 +36,11 @@ export default function ReducerDemo(){
             <h2>Product Details</h2>
             
             <div className="p-2 card" style={{width:'200px'}}>
-                <img src={product.image} className="card-img-top" height="160px"/>
+                {/* <img src={product.image} className="card-img-top" height="160px"/> */}
+                <img src={data.data.image} className="card-img-top" height="160px"/>
                 <div className="card-header">
-                    <p>{product.title}</p>
+                    {/* <p>{product.title}</p> */}
+                    <p>{data.data.title}</p>
                 </div>
                 <div className="card-footer">
                     [{state.likes}]<button className="btn btn-primary" onClick={()=>{dispatch({type:'Like'})}}><span className="bi bi-hand-thumbs-up"></span></button>
