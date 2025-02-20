@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
+import { useCaptcha } from "../hooks/useCaptcha";
 
 
 export default function UserLogin(){
     const [cookies, setCookies, removeCookies] = useCookies(['username']);
     const [userDetails, setUserDetails] =  useState({UserName:'', Password:''});
+    const code = useCaptcha();
 
     function  handleUserName(e){
         setUserDetails({
@@ -44,6 +46,8 @@ export default function UserLogin(){
                 <dd><input onChange={handleUserName} type="text" /></dd>
                 <dt>Password</dt>
                 <dd><input onChange={handlePassword} type="password" /></dd>
+                <dt>Verify Code</dt>
+                <dd>{code.code}</dd>
             </dl>
             <button onClick={handleLogin}>Login</button>
             <hr/>
