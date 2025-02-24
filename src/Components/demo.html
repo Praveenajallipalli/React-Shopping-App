@@ -9,10 +9,30 @@
         // for(var property in table){
         //     document.write(property + "<br/>");
         // }
-        var values = [10, true, "Samsung TV"];
-        var [id, stock, name ] = values;
-        document.write(name);
-        document.write(stock);
+        // var values = [10, true, "Samsung TV"];
+        // var [id, stock, name ] = values;
+        // document.write(name);
+        // document.write(stock);
+        
+        // function SentenceCase(str){
+        //     var firstChar = str.charAt(0);
+        //     var restChars = str.substring(1);
+        //     var sentence = firstChar.toUpperCase()+restChars.toLowerCase();
+        //     return sentence;
+        // }
+        // var text = "wELcoME to JAvascRIPt";
+        // document.write(text+"<br/>");
+        // document.write(SentenceCase(text))
+
+        function sorting(...list){
+            list.sort();
+            for(var item of list){
+                document.write(item+"<br/>");
+            }
+        }
+        sorting("D","B","E","A","C"); 
+        sorting("P","G","W","U","S","C");
+
     </script>
 </head>
 <body>

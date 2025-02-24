@@ -17,18 +17,10 @@ export default function CustomHookDemo()
             console.log(item);
         })
     }
-    
 
     return(
         <div className="container-fluid">
             <h2>Products</h2>
-            <ol>
-                {
-                    data.map((product) => {
-                        return <li key={product.id}>{product.title}</li>
-                    })
-                }
-            </ol>
             <ol>
                 {
                     list.map((item,index) => {
@@ -36,8 +28,14 @@ export default function CustomHookDemo()
                     })
                 }
             </ol>
+            <ol>
+                {
+                    data.map((product)=>{
+                        return <li key={product.id}>{product.title}</li>
+                    })
+                }
+            </ol>
             <button onClick={handleData}>Click</button>
         </div>
     )
 }
-
