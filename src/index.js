@@ -13,11 +13,12 @@ import JQueryAjaxDemo from './Components/JQueryAjaxDemo';
 import UserLogin from './Components/UserLogin';
 import AxiosDemo from './Components/AxiosDemo';
 import ShoppingIndex from './shopping/ShoppingIndex';
+import SPAComponent from './Components/SPAComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ShoppingIndex/>
+    <SPAComponent/>
   </React.StrictMode>
 );
 
