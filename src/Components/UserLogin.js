@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useCaptcha } from "../hooks/useCaptcha";
+import $ from 'jquery';
 
 
 export default function UserLogin(){
     const [cookies, setCookies, removeCookies] = useCookies(['username']);
     const [userDetails, setUserDetails] =  useState({UserName:'', Password:''});
     const code = useCaptcha();
+    const [users, setUsers] = useState([]);
 
     function  handleUserName(e){
         setUserDetails({
@@ -23,8 +25,15 @@ export default function UserLogin(){
     }
 
     function  handleLogin(){
-        setCookies("username", userDetails.UserName, {path:'/', expires: new Date("2025-02-20 20:22")});
-        alert("Login Success...");
+        for(var user of users){
+            if(user.UserId==userDetails.UserName && user.Password==userDetails.Password){
+                setCookies("username", userDetails.UserName, {path:'/', expires: new Date("2025-02-20 20:22")});
+                alert("Login Success...");
+                break;
+            }else{
+                alert("Invalid Login...");
+            }
+        }
     }
 
     function handleSignOut(){
@@ -33,9 +42,17 @@ export default function UserLogin(){
     }
 
     useEffect(()=>{
-        if(cookies.username==undefined){
-            alert("Please Login..");
-        }
+        // if(cookies.username==undefined){
+        //     alert("Please Login..");
+        // }
+
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:4000/getusers",
+            success: function(response){
+                setUsers(response);
+            }
+        })
     })
 
     return(

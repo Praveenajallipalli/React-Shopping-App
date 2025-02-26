@@ -11,7 +11,7 @@ app.use(express.urlencoded({
 }))
 app.use(express.json());
 
-app.get("/",async (req,res)=>{
+app.get("/getusers",async (req,res)=>{
     await mongoClient.connect(connectionString).then(async (client)=>{
         console.log("Connected to DB");
 
@@ -31,7 +31,7 @@ app.get("/",async (req,res)=>{
     // res.send(data);
 })
 
-app.post("/rgusr",(req,res)=>{
+app.post("/registeruser",(req,res)=>{
     var userdetails = {
         UserId: req.body.UserId,
         UserName: req.body.UserName,
@@ -45,7 +45,7 @@ app.post("/rgusr",(req,res)=>{
         var database = client.db("reactdb");
         var colc = database.collection("tblusers");
         colc.insertOne(userdetails);
-        res.redirect("/");
+        res.redirect("/getusers");
     })
     .catch(err=>{
         console.log(err);
