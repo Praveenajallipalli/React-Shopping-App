@@ -13,7 +13,7 @@ export default function AxiosDemo(){
         .catch(function(err){
             console.log(err);
         })
-    })
+    },[])
 
     return(
         <div className="container-fluid">

@@ -14,11 +14,13 @@ import UserLogin from './Components/UserLogin';
 import AxiosDemo from './Components/AxiosDemo';
 import ShoppingIndex from './shopping/ShoppingIndex';
 import SPAComponent from './Components/SPAComponent';
+import ISopHome from './Ishop/IShopHome';
+import IShopIndex from './Ishop/IShopIndex';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SPAComponent/>
+    <IShopIndex/>
   </React.StrictMode>
 );
 
