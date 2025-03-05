@@ -18,7 +18,7 @@ app.get("/getusers",async (req,res)=>{
         const db = client.db("reactdb");
         const doc = db.collection("tblusers")
         const data = await doc.find({}).toArray();
-        console.log(data);
+        // console.log(data);
         res.send(data);
     })
 
@@ -52,6 +52,57 @@ app.post("/registeruser",(req,res)=>{
     })
 })
 
+app.get("/getproducts",(req,res)=>{
+    mongoClient.connect(connectionString)
+    .then(client => {
+        var database = client.db("reactdb");
+        database.collection("tblproducts").find({}).toArray()
+        .then(documents => {
+            res.send(documents);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+})
+app.get("/getcategories",(req,res)=>{
+    mongoClient.connect(connectionString)
+    .then(client => {
+        var database = client.db("reactdb");
+        database.collection("tblcategories").find({}).toArray()
+        .then(documents => {
+            res.send(documents);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+})
+
+app.get("/getproduct/:id",(req,res)=>{
+    let productId = parseInt(req.params.id);
+    mongoClient.connect(connectionString)
+    .then(client => {
+        var database = client.db("reactdb");
+        database.collection("tblproducts").find({id:productId}).toArray()
+        .then(documents => {
+            res.send(documents);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+})
+
 app.listen(4000, () => {
     console.log("App Started..")
-});
+})

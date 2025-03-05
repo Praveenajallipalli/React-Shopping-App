@@ -3,18 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
-import NetflixIndexComponent from './Components/NetflixIndexComponent';
 import { CookiesProvider } from 'react-cookie';
+
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
-import CustomHookDemo from './Components/CustomHookDemo';
-import JQueryAjaxDemo from './Components/JQueryAjaxDemo';
-import UserLogin from './Components/UserLogin';
-import AxiosDemo from './Components/AxiosDemo';
-import ShoppingIndex from './shopping/ShoppingIndex';
-import SPAComponent from './Components/SPAComponent';
-import ISopHome from './Ishop/IShopHome';
 import IShopIndex from './Ishop/IShopIndex';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

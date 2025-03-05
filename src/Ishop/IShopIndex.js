@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import IShopHome from './IShopHome';
-import IShopLogin from './IShopLogin';
 import IShopDashboard from './IShopDashboard';
+import IShopLogin from './IShopLogin';
 import IShopRegister from './IShopRegister';
+import IShopProducts from './IShopProducts';
+import IShopProductDetails from './IShopProductDetails';
 
 export default function IShopIndex(){
     return(
@@ -33,6 +35,8 @@ export default function IShopIndex(){
                             <Route path='login' element={<IShopLogin/>} />
                             <Route path='register' element={<IShopRegister/>} />
                             <Route path='dashboard' element={<IShopDashboard/>} />
+                            <Route path='products/:category' element={<IShopProducts/>} />
+                            <Route path="details/:id" element={<IShopProductDetails/>} />
                             <Route path='/errorpage' element={
                                 <div>
                                     <h2 className='text-danger'>Invalid Credentials</h2>
